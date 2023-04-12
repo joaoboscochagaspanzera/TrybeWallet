@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
+import './pages-css/Login.css';
 
 const MIN_PASSWORD = 6;
 
@@ -40,38 +41,42 @@ class Login extends Component {
     const { emailInput, password } = this.state;
     const isValid = this.validateEmail(emailInput) && this.validatePassword(password);
     return (
-      <form>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            data-testid="email-input"
-            value={ emailInput }
-            onChange={ this.handleEmailChange }
-            required
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            data-testid="password-input"
-            minLength={ 6 }
-            value={ password }
-            onChange={ this.handlePasswordChange }
-            required
-          />
-        </label>
-        <button
-          type="submit"
-          onClick={ this.handleSubmit }
-          disabled={ !isValid }
-        >
-          Entrar
-        </button>
-      </form>
+      <div className="login-container">
+        <div className="login-box">
+          <form>
+            <label>
+              Email:
+              <input
+                type="email"
+                name="email"
+                data-testid="email-input"
+                value={ emailInput }
+                onChange={ this.handleEmailChange }
+                required
+              />
+            </label>
+            <label>
+              Senha:
+              <input
+                type="password"
+                name="password"
+                data-testid="password-input"
+                minLength={ 6 }
+                value={ password }
+                onChange={ this.handlePasswordChange }
+                required
+              />
+            </label>
+            <button
+              type="submit"
+              onClick={ this.handleSubmit }
+              disabled={ !isValid }
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }

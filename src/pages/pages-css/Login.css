@@ -1,0 +1,60 @@
+body {
+  background-color: #2e2e2e; /* cor escura de fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+form {
+  background-color: #393939; /* cor mais escura da caixa */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex; /* adicionado para usar flexbox */
+  flex-direction: column; /* adicionado para alinhar itens na coluna */
+}
+
+label {
+  color: #fff; /* cor dos rótulos dos campos */
+  display: flex; /* adicionado para usar flexbox */
+  align-items: center; /* adicionado para alinhar itens verticalmente */
+  margin-bottom: 30px;
+  width: auto; /* definido a largura para se ajustar ao conteúdo */
+  margin-right: 10px; /* adicionado espaço entre o texto e o input */
+  margin-right: 5px; /* adicionado margem à direita */
+}
+
+input[type="email"],
+input[type="password"] {
+  background-color: #2e2e2e; /* cor dos campos de entrada */
+  color: #fff; /* cor do texto dos campos de entrada */
+  border: none;
+  padding: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: auto; /* adicionado para alinhar os campos na metade da altura */
+  margin-bottom: auto; /* adicionado para alinhar os campos na metade da altura */
+  margin-left: 5px; /* adicionado margem à esquerda */
+}
+
+button[type="submit"] {
+  background-color: #007bff; /* cor do botão de envio */
+  color: #fff; /* cor do texto do botão de envio */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center; /* alinhado à direita */
+}
+
+button[type="submit"]:disabled {
+  background-color: #8c8c8c; /* cor do botão de envio desativado */
+  cursor: not-allowed;
+}
+
+button[type="submit"]:not(:disabled):hover {
+  background-color: #0069d9; /* cor de fundo do botão de envio quando o mouse passa por cima */
+}
