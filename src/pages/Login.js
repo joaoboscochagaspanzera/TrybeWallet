@@ -52,6 +52,7 @@ class Login extends Component {
                 data-testid="email-input"
                 value={ emailInput }
                 onChange={ this.handleEmailChange }
+                className="input-email"
                 required
               />
             </label>
@@ -64,6 +65,7 @@ class Login extends Component {
                 minLength={ 6 }
                 value={ password }
                 onChange={ this.handlePasswordChange }
+                className="input-password"
                 required
               />
             </label>
@@ -71,6 +73,7 @@ class Login extends Component {
               type="submit"
               onClick={ this.handleSubmit }
               disabled={ !isValid }
+              className="button-submit"
             >
               Entrar
             </button>
