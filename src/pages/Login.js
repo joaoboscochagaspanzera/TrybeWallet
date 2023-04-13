@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
-import './pages-css/Login.css';
+import '../css/Login.css';
 
 const MIN_PASSWORD = 6;
 
@@ -43,8 +43,8 @@ class Login extends Component {
     return (
       <div className="login-container">
         <div className="login-box">
-          <form>
-            <label>
+          <form className="login-form">
+            <label className="login-label">
               Email:
               <input
                 type="email"

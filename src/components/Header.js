@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../css/Header.css';
 
 class Header extends Component {
   state = {
@@ -12,7 +13,7 @@ class Header extends Component {
     const { email } = this.props;
     const { total, currency } = this.state;
     return (
-      <header>
+      <header className="header-container">
         <div data-testid="email-field">
           Email:
           {email}
