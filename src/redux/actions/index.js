@@ -1,6 +1,12 @@
-// Coloque aqui suas actions
 export const ADD_EMAIL = 'ADD_EMAIL';
 export const CURRENCIES_REQUEST = 'CURRENCIES_REQUEST';
+export const ADD_EXPENSES = 'ADD_EXPENSES';
+
+export const fetchCurrency = async () => {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+  return data;
+};
 
 export const addEmail = (email) => ({
   type: ADD_EMAIL,
@@ -23,3 +29,30 @@ export const fetchCurrencies = () => async (dispatch) => {
   const removeUSDT = currencies.filter((curr) => curr !== 'USDT');
   dispatch(addCurrencies(removeUSDT));
 };
+
+export const addExpenses = (expenses, ask) => ({
+  type: ADD_EXPENSES,
+  payload: {
+    expenses,
+    ask,
+  },
+});
+
+export const addExchangeRate = (exchangeRate) => ({
+  type: ADD_EXCHANGE_RATE,
+  payload: {
+    exchangeRate,
+  },
+});
+
+export const fetchExchangeRate = async (currency) => {
+  const response = await fetch(`https://economia.awesomeapi.com.br/json/all/${currency}-BRL`);
+  const data = await response.json();
+  const exchangeRate = data[currency].ask;
+  return exchangeRate;
+};
+
+export const addValueToGlobalState = (value) => ({
+  type: ADD_VALUE_TO_GLOBAL_STATE,
+  value,
+});

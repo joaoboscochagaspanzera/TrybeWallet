@@ -5,25 +5,21 @@ import '../css/Header.css';
 
 class Header extends Component {
   state = {
-    total: 0,
     currency: 'BRL',
   };
 
   render() {
-    const { email } = this.props;
-    const { total, currency } = this.state;
+    const { email, total } = this.props;
+    const { currency } = this.state;
     return (
       <header className="header-container">
         <div data-testid="email-field">
-          Email:
           {email}
         </div>
         <div data-testid="total-field">
-          Total:
-          {total}
+          {total.toFixed(2)}
         </div>
         <div data-testid="header-currency-field">
-          Currency:
           {currency}
         </div>
       </header>
@@ -31,12 +27,14 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  email: state.user.email,
+const mapStateToProps = ({ user, wallet }) => ({
+  email: user.email,
+  total: wallet.ask,
 });
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Header);
