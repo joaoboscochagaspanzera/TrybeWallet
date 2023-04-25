@@ -9,8 +9,12 @@ class Header extends Component {
   };
 
   render() {
-    const { email, total } = this.props;
+    const { email, expenses } = this.props;
     const { currency } = this.state;
+    const total = expenses.reduce((acc, curr) => {
+      const sum = (Number(curr.value) * Number(curr.exchangeRates[curr.currency].ask));
+      return (Number(acc) + sum);
+    }, 0);
     return (
       <header className="header-container">
         <div data-testid="email-field">
@@ -27,14 +31,14 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = ({ user, wallet }) => ({
-  email: user.email,
-  total: wallet.ask,
+const mapStateToProps = (state) => ({
+  ...state.user,
+  ...state.wallet,
 });
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
 };
 
 export default connect(mapStateToProps)(Header);
