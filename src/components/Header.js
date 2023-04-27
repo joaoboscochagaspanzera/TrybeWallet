@@ -22,8 +22,7 @@ class Header extends Component {
         </div>
         <div data-testid="total-field">
           {total.toFixed(2)}
-        </div>
-        <div data-testid="header-currency-field">
+          <br />
           {currency}
         </div>
       </header>

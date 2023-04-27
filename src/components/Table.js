@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { delExpense } from '../redux/actions';
+import '../css/Table.css';
 
 class Table extends Component {
   handleChange = (expense) => {
