@@ -56,7 +56,7 @@ class Login extends Component {
                 required
               />
             </label>
-            <label>
+            <label className="login-label">
               Senha:
               <input
                 type="password"
